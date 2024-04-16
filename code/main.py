@@ -20,7 +20,6 @@ async def root():
 @app.post("/study-plan")
 async def study_plan(item: Item):
     response = llm.response(item.carrera, item.temaEstudio, item.tiempoDisponible, item.horaInicial_tiempoLibre, item.horaFinal_tiempoLibre)
-    return {"plan": response}
 
 
 if __name__ == "__main__":
