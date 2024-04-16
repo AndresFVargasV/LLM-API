@@ -5,9 +5,9 @@ import json
 data = {
     "carrera": "Ingeniería Informática",
     "temaEstudio": "Aprendizaje Automático",
-    "tiempoDisponible": "10",
     "horaInicial_tiempoLibre": "18:00",
-    "horaFinal_tiempoLibre": "20:00"
+    "horaFinal_tiempoLibre": "20:00",
+    "diasEstudio": "Lunes, Miércoles, Viernes"
 }
 
 # Convert the data to JSON format
@@ -21,7 +21,7 @@ if response.status_code == 200:
     # Assuming the server returns JSON
     print("Response from server:")
     try:
-        print(response.text)  # Print formatted JSON
+        print(response.json()) 
     except json.JSONDecodeError:
         print("Failed to decode JSON from response.")
 else:
