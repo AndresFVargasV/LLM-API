@@ -21,7 +21,7 @@ def response(carrera, temaEstudio, horaInicial_tiempoLibre, horaFinal_tiempoLibr
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "Por favor, crea un plan de estudio semanal para el usuario basado en la información proporcionada. Quiero que me des temas claros para estudiar, recursos como libros, cursos en internet, revistas, etc, y devuelve la respuesta en el siguiente formato JSON: {'carrera': '', 'temaEstudio': '', 'tiempoDisponible': 0, 'horarioLibre': {'horaInicio': '', 'horaFin': ''}, 'planEstudio': [{'dia': '', 'actividades': ['']: 'recursos':['']}]}."},
+            {"role": "system", "content": "Por favor, crea un plan de estudio semanal para el usuario basado en la información proporcionada. Que tu respuesta sea totalmente completa. Quiero que me des temas claros para estudiar, recursos como libros, cursos en internet, revistas, etc, y devuelve la respuesta en el siguiente formato JSON: {'carrera': '', 'temaEstudio': '', 'tiempoDisponible': 0, 'horarioLibre': {'horaInicio': '', 'horaFin': ''}, 'planEstudio': [{'dia': '', 'actividades': ['']: 'recursos':['']}]}."},
             {"role": "user", "content": user_input_content}
         ]
     )
