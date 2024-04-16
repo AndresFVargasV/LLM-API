@@ -1,28 +1,37 @@
-from fastapi import FastAPI
 from pydantic import BaseModel
-import llm
+from typing import Optional
+from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
+from fastapi import FastAPI
 
 app = FastAPI()
 
-# Definir el modelo de datos
+# Configuración de CORS
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # Permite todas las origines
+    allow_credentials=True,
+    allow_methods=["*"],  # Permite todos los métodos
+    allow_headers=["*"],  # Permite todos los headers
+)
+
 class Item(BaseModel):
     carrera: str
-    temaEstudio: str
-    horaInicial_tiempoLibreL: str
-    horaFinal_tiempoLibreL: str
-    horaInicial_tiempoLibreM: str
-    horaFinal_tiempoLibreM: str
-    horaInicial_tiempoLibreW: str
-    horaFinal_tiempoLibreW: str
-    horaInicial_tiempoLibreJ: str
-    horaFinal_tiempoLibreJ: str
-    horaInicial_tiempoLibreV: str
-    horaFinal_tiempoLibreV: str
-    horaInicial_tiempoLibreS: str
-    horaFinal_tiempoLibreS: str
-    horaInicial_tiempoLibreD: str
-    horaFinal_tiempoLibreD: str
+    tema: str
+    horaInicial_tiempoLibreL: Optional[str] = None
+    horaFinal_tiempoLibreL: Optional[str] = None
+    horaInicial_tiempoLibreM: Optional[str] = None
+    horaFinal_tiempoLibreM: Optional[str] = None
+    horaInicial_tiempoLibreW: Optional[str] = None
+    horaFinal_tiempoLibreW: Optional[str] = None
+    horaInicial_tiempoLibreJ: Optional[str] = None
+    horaFinal_tiempoLibreJ: Optional[str] = None
+    horaInicial_tiempoLibreV: Optional[str] = None
+    horaFinal_tiempoLibreV: Optional[str] = None
+    horaInicial_tiempoLibreS: Optional[str] = None
+    horaFinal_tiempoLibreS: Optional[str] = None
+    horaInicial_tiempoLibreD: Optional[str] = None
+    horaFinal_tiempoLibreD: Optional[str] = None
 
 
 @app.get("/")
@@ -31,9 +40,9 @@ async def root():
 
 @app.post("/study-plan")
 async def study_plan(item: Item):
-    print(item)
-    response = llm.response(item.carrera, item.temaEstudio, item.horaInicial_tiempoLibre, item.horaFinal_tiempoLibre, item.diasEstudio)
-    return response
+    print(item.carrera)  # Debugging: imprimir la carrera para verificación
+    # Aquí podrías llamar a una función de procesamiento y devolver la respuesta
+    return {"status": "Success", "data": item.dict()}
 
 if __name__ == "__main__":
-    uvicorn.run(app, port=8000)
+    uvicorn.run(app, host="127.0.0.1", port=8000)
