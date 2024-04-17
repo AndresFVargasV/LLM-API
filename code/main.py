@@ -3,6 +3,7 @@ from typing import Optional
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn
 from fastapi import FastAPI
+import llm
 
 app = FastAPI()
 
@@ -40,9 +41,18 @@ async def root():
 
 @app.post("/study-plan")
 async def study_plan(item: Item):
-    print(item.carrera)  # Debugging: imprimir la carrera para verificación
+    respuesta = llm.get_response(item.carrera, item.tema, item.horaInicial_tiempoLibreL, item.horaFinal_tiempoLibreL, 
+                             item.horaInicial_tiempoLibreM, item.horaFinal_tiempoLibreM, 
+                             item.horaInicial_tiempoLibreW, item.horaFinal_tiempoLibreW, 
+                             item.horaInicial_tiempoLibreJ, item.horaFinal_tiempoLibreJ, 
+                             item.horaInicial_tiempoLibreV, item.horaFinal_tiempoLibreV, 
+                             item.horaInicial_tiempoLibreS, item.horaFinal_tiempoLibreS, 
+                             item.horaInicial_tiempoLibreD, item.horaFinal_tiempoLibreD)
+    
+    print(respuesta)
+    
     # Aquí podrías llamar a una función de procesamiento y devolver la respuesta
-    return {"status": "Success", "data": item.dict()}
+    return respuesta
 
 if __name__ == "__main__":
     uvicorn.run(app, host="127.0.0.1", port=8000)
