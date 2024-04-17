@@ -3,7 +3,7 @@ __pycache__/
 *.py[cod]
 *$py.class
 
-code/llm-api-venv
+code/llm-api-venv/
 
 # C extensions
 *.so
