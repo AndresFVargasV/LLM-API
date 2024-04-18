@@ -32,7 +32,7 @@ def call_api(carrera, tema, day_hours):
     completion = client.chat.completions.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "Por favor, crea un plan de estudio semanal para el usuario basado en la información proporcionada. Que tu respuesta sea totalmente completa. Quiero que me des temas claros para estudiar, recursos como libros, cursos en internet, revistas, etc. También, si algunas de las horas de los días es un valor nulo o no un tiempo suficiente de media hora o mas, no tengas en cuenta esa hora ni ese día. Da una respuesta valida y sin tantas equivocaciones. Finalmente, devuelve la respuesta en el siguiente formato JSON: {'planEstudio': [{'dia': '','hora_inicio_estudio_dia': '','hora_final_estudio_dia': '', 'actividades': ['']: 'recursos':['']}]}."},
+            {"role": "system", "content": "Por favor, crea un plan de estudio semanal para el usuario basado en la información proporcionada. Que tu respuesta sea totalmente completa. Quiero que me des temas claros para estudiar, recursos como libros, cursos en internet, revistas, etc. También, si algunas de las horas de los días es un valor nulo o no un tiempo suficiente de media hora o mas, no tengas en cuenta esa hora ni ese día. Da una respuesta valida y sin tantas equivocaciones. Finalmente, devuelve la respuesta en el siguiente formato JSON: {'planEstudio': [{'dia': '','hora_inicio_estudio_dia': '','hora_final_estudio_dia': '', 'actividades': ['']: 'recursos':['']}]}. (SOLO EL JSON)"},
             {"role": "user", "content": user_input_content}
         ]
     )
