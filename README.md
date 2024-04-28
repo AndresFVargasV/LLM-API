@@ -1,7 +1,7 @@
 # LLM-API
 
 ## Overview
-LLM-API is a Python-based project aimed at integrating language model capabilities into applications. This API facilitates the interaction with advanced language processing models to enhance text-related functionalities.
+LLM-API is a Python-based project aimed at integrating language model capabilities into applications. This API makes it easier for students to create study plans according to certain characteristics through an LLM.
 
 ## Installation
 
@@ -19,7 +19,8 @@ To set up the LLM-API on your local environment, follow these steps:
   ```bash
     pip install -r requirements.txt
   ```
-
+4. Note
+   For the operation of this project is necessary to have an OpenAI Key. 
 
 ## Usage
 
@@ -31,7 +32,7 @@ Run the application using the following command:
 
 This will start the API server, allowing you to send requests to process text through the configured language models.
 
-## Important Note
+## UI
 
 The UI for this project is located in this repository: [Student Schedule - Frontend](https://github.com/AndresFVargasV/student-schedule.git)
 
