@@ -32,6 +32,10 @@ Run the application using the following command:
 
 This will start the API server, allowing you to send requests to process text through the configured language models.
 
+## Important Note
+
+The UI for this project is located in this repository: [Student Schedule - Frontend](https://github.com/AndresFVargasV/student-schedule.git)
+
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
