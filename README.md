@@ -19,8 +19,9 @@ To set up the LLM-API on your local environment, follow these steps:
   ```bash
     pip install -r requirements.txt
   ```
-4. Note
-   For the operation of this project is necessary to have an OpenAI Key. 
+## Note:
+
+For the operation of this project is necessary to have an OpenAI Key. 
 
 ## Usage
 
