@@ -13,9 +13,9 @@ To set up the LLM-API on your local environment, follow these steps:
     git clone https://github.com/AndresFVargasV/LLM-API.git
   ```
 2. Navigate to the cloned directory:
-   ```bash
+  ```bash
     cd LLM-API
-   ```
+  ```
 3. Install the required packages:
   ```bash
     pip install -r requirements.txt
